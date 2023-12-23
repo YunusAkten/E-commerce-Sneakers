@@ -1,58 +1,76 @@
-interface IProduct {
-  id: number;
+import nikelebronwitnessv from "../images/shoes/nikeLebronWitnessV.jpg";
+import nikekyrie6 from "../images/shoes/nikeKyrie6.jpg";
+import nikekd13 from "../images/shoes/nikeKd13.jpg";
+import adidashardenstepback from "../images/shoes/adidasHardenStepback.jpg";
+import jordanwhynot from "../images/shoes/jordanWhyNot.jpg";
+import nikezoomfreak from "../images/shoes/nikeZoomFreak.jpg";
+import AirJordan1Mid from "../images/shoes/AirJordan1Mid.jpg";
+import nikelebronxviilow from "../images/shoes/nikeLebronXVIILow.jpg";
+
+interface Shoe {
+  id: string;
   name: string;
   price: number;
   img: string;
+  brand?: string;
 }
 
-const data: IProduct[] = [
+const data: Shoe[] = [
   {
-    id: 1,
+    id: nikelebronwitnessv,
     name: "Nike Lebron Witness V",
     price: 200,
-    img: "nikeLebronWitnessV.jpg",
+    img: nikelebronwitnessv,
+    brand: "nike",
   },
   {
-    id: 2,
+    id: nikekyrie6,
     name: "Nike Kyrie 6",
     price: 150,
-    img: "nikeKyrie6.jpg",
+    img: nikekyrie6,
+    brand: "nike",
   },
   {
-    id: 3,
+    id: nikekd13,
     name: "Nike Kd 13",
     price: 180,
-    img: "nikeKd13.jpg",
+    img: nikekd13,
+    brand: "nike",
   },
   {
-    id: 4,
+    id: adidashardenstepback,
     name: "Adidas Harden Stepback",
     price: 50,
-    img: "adidasHardenStepback.jpg",
+    img: adidashardenstepback,
+    brand: "adidas",
   },
   {
-    id: 5,
+    id: jordanwhynot,
     name: "Jordan Why Not Zer0.3 Se",
     price: 100,
-    img: "jordanWhyNot.jpg",
+    img: jordanwhynot,
+    brand: "jordan",
   },
   {
-    id: 6,
+    id: nikezoomfreak,
     name: "Nike Zoom Freak",
     price: 120,
-    img: "nikeZoomFreak.jpg",
+    img: nikezoomfreak,
+    brand: "nike",
   },
   {
-    id: 7,
+    id: AirJordan1Mid,
     name: "Air Jordan 1 Mid",
     price: 200,
-    img: "airJordan1Mid.jpg",
+    img: AirJordan1Mid,
+    brand: "jordan",
   },
   {
-    id: 8,
+    id: nikelebronxviilow,
     name: "Nike Lebron XVII Low",
     price: 150,
-    img: "nikeLebronXVIILow.jpg",
+    img: nikelebronwitnessv,
+    brand: "nike",
   },
 ];
 export default data;

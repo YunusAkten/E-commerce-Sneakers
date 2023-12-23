@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import Home from "./Home";
-import Shop from "./Compenents/Shop";
+import Sneakers from "./Compenents/Sneakers";
+import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -14,8 +13,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/shop",
-    element: <Shop />,
+    path: "/sneakers",
+    element: <Sneakers />,
+  },
+  {
+    path: "/sneakers/:id",
+    element: <Sneakers />,
   },
 ]);
 const root = ReactDOM.createRoot(

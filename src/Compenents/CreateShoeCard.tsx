@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 function CreateShoeCard(props: any) {
   return (
-    <div className="p-1">
-      {/* <Card className="shoeCard">
-        <Card.Img alt="name" className="shoeImg" src={props.img}></Card.Img>
-
-        <Card.Body></Card.Body>
-      </Card> */}
+    <div className="shoediv m-2">
+      <a href={`/shop/${props.name}`}>
+        <div className="  shadow-sm">
+          <img alt="name" className="shoeImg" src={props.img}></img>
+          <div className="textDiv">
+            <p> {props.name}</p>
+            <p className="bold">${props.price}</p>
+          </div>
+        </div>
+      </a>
     </div>
   );
 }

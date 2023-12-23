@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
 import BasicNavbar from "./Compenents/BasicNavbar";
-import { HomeStyle } from "./HomeStyle";
-import { ButtonStyle } from "./Compenents/styles/ButtonStyle";
-import shoes from "./data/shoes";
-import { useDispatch } from "react-redux";
+import Brands from "./Compenents/Brands";
+import Carousel from "./Compenents/Carousel";
 function Home() {
   return (
-    <>
+    <div className="flex flex-col  h-screen">
       <BasicNavbar />
-      <HomeStyle>
-        <div>
-          <h1>Jordan Why Not Zer0.3 Se Available</h1>
-
-          <ButtonStyle $backgroundColor="green" $floatRight={true}>
-            Shop Now
-          </ButtonStyle>
-        </div>
-      </HomeStyle>
-    </>
+      <Carousel />
+      <Brands />
+    </div>
   );
 }
 
