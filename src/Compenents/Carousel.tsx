@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { homeImages } from "../data/homeImages";
 function Carousel() {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -9,7 +9,12 @@ function Carousel() {
   const prevImage = () => {
     setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1);
   };
-
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentImage]);
   return (
     <div className="carousel items-center flex    ">
       <button
@@ -24,10 +29,7 @@ function Carousel() {
         alt={homeImages[currentImage].id}
       />
       <div className="absolute ml-16">
-        <h1
-          className="text-white font-bold
-         text-3xl text-center  "
-        >
+        <h1 className="text-white font-bold text-3xl text-center  ">
           {homeImages[currentImage].title}
         </h1>
         <button className=" absolute m-2  bg-green-500 hover:bg-green-600  rounded p-1">

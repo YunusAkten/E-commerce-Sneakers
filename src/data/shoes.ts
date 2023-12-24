@@ -7,12 +7,13 @@ import nikezoomfreak from "../images/shoes/nikeZoomFreak.jpg";
 import AirJordan1Mid from "../images/shoes/AirJordan1Mid.jpg";
 import nikelebronxviilow from "../images/shoes/nikeLebronXVIILow.jpg";
 
-interface Shoe {
+export interface Shoe {
   id: string;
   name: string;
   price: number;
   img: string;
   brand?: string;
+  sales: number;
 }
 
 const data: Shoe[] = [
@@ -22,6 +23,7 @@ const data: Shoe[] = [
     price: 200,
     img: nikelebronwitnessv,
     brand: "nike",
+    sales: 540,
   },
   {
     id: nikekyrie6,
@@ -29,6 +31,7 @@ const data: Shoe[] = [
     price: 150,
     img: nikekyrie6,
     brand: "nike",
+    sales: 224,
   },
   {
     id: nikekd13,
@@ -36,6 +39,7 @@ const data: Shoe[] = [
     price: 180,
     img: nikekd13,
     brand: "nike",
+    sales: 722,
   },
   {
     id: adidashardenstepback,
@@ -43,6 +47,7 @@ const data: Shoe[] = [
     price: 50,
     img: adidashardenstepback,
     brand: "adidas",
+    sales: 200,
   },
   {
     id: jordanwhynot,
@@ -50,6 +55,7 @@ const data: Shoe[] = [
     price: 100,
     img: jordanwhynot,
     brand: "jordan",
+    sales: 800,
   },
   {
     id: nikezoomfreak,
@@ -57,6 +63,7 @@ const data: Shoe[] = [
     price: 120,
     img: nikezoomfreak,
     brand: "nike",
+    sales: 521,
   },
   {
     id: AirJordan1Mid,
@@ -64,6 +71,7 @@ const data: Shoe[] = [
     price: 200,
     img: AirJordan1Mid,
     brand: "jordan",
+    sales: 370,
   },
   {
     id: nikelebronxviilow,
@@ -71,6 +79,7 @@ const data: Shoe[] = [
     price: 150,
     img: nikelebronwitnessv,
     brand: "nike",
+    sales: 742,
   },
 ];
 export default data;
