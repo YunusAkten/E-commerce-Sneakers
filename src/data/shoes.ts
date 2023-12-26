@@ -6,7 +6,6 @@ import jordanwhynot from "../images/shoes/jordanWhyNot.jpg";
 import nikezoomfreak from "../images/shoes/nikeZoomFreak.jpg";
 import AirJordan1Mid from "../images/shoes/AirJordan1Mid.jpg";
 import nikelebronxviilow from "../images/shoes/nikeLebronXVIILow.jpg";
-
 export interface Shoe {
   id: string;
   name: string;
@@ -14,8 +13,11 @@ export interface Shoe {
   img: string;
   brand?: string;
   sales: number;
+  blob?: string;
 }
-
+function createBlob(params: string) {
+  return params.split(" ").join("-").toLowerCase();
+}
 const data: Shoe[] = [
   {
     id: nikelebronwitnessv,
@@ -81,5 +83,8 @@ const data: Shoe[] = [
     brand: "nike",
     sales: 742,
   },
-];
+].map((shoe) => ({
+  ...shoe,
+  blob: createBlob(shoe.name),
+}));
 export default data;

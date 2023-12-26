@@ -9,7 +9,6 @@ import JordanSection from "./Compenents/jordanSection";
 function Home() {
   return (
     <div className="flex flex-col   h-screen">
-      <BasicNavbar />
       <Carousel />
       <Brands /> <NikeSection />
       <TrendingSneakers />

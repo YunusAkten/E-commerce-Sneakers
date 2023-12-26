@@ -8,7 +8,7 @@ function Brands() {
       <div className="flex justify-center">
         {brands.map((brand: Brand) => {
           return (
-            <a href={`/sneakers/${brand.name}`}>
+            <a key={brand.id} href={`/sneakers/${brand.name}`}>
               <img className="w-16 m-6" src={brand.link} alt={brand.id} />
             </a>
           );

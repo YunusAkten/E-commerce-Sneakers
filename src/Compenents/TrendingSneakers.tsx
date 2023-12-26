@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import shoes from "../data/shoes";
 import { Shoe } from "../data/shoes";
+import { Link } from "react-router-dom";
 function TrendingSneakers() {
   const [sortedShoes, setSortedShoes] = useState<Shoe[]>([]);
   if (sortedShoes.length === 0) {
@@ -16,9 +17,10 @@ function TrendingSneakers() {
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-5  ">
         {sortedShoes.map((shoe) => {
           return (
-            <a
-              href={`
-            /sneakers/${shoe.name}
+            <Link
+              key={shoe.name}
+              to={`
+            /sneakers/${shoe.blob}
             `}
             >
               <div className="flex  flex-col items-center">
@@ -26,7 +28,7 @@ function TrendingSneakers() {
                 <h1 className="text-center text-xl font-bold">{shoe.name}</h1>
                 <h1 className="text-center text-xl font-bold">${shoe.price}</h1>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>

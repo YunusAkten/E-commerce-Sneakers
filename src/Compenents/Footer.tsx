@@ -1,8 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <footer className="bg-neutral-100   text-center text-neutral-600 dark:bg-gray-800 dark:text-white lg:text-left">
+    <footer className="bg-neutral-100  mt-auto  text-center text-neutral-600 dark:bg-gray-800 dark:text-white lg:text-left">
       <div className="mx-6 py-5 text-center md:text-left">
         <div className="grid-1 text-center  grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="">
@@ -10,9 +10,9 @@ function Footer() {
               Categories{" "}
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+              <Link to="/" className="text-neutral-600 dark:text-neutral-200">
                 Sneakers
-              </a>
+              </Link>
             </p>
             <p className="mb-4">
               <a href="#!" className="text-neutral-600 dark:text-neutral-200">
