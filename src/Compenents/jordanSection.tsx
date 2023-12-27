@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import jordanBanner from "../images/homeImages/jordanBanner.jpg";
 import { Shoe } from "../data/shoes";
 import shoes from "../data/shoes";
-import { Link } from "react-router-dom";
+
+import SneakerCard from "./SneakerCard";
+
 function JordanSection() {
   const [jordans, setJordans] = useState<Shoe[]>([]);
   useEffect(() => {
@@ -27,9 +30,7 @@ function JordanSection() {
         {jordans.map((shoe) => {
           return (
             <Link key={shoe.name} to={`/sneakers${shoe.blob}`}>
-              <img className=" " src={shoe.img} alt={shoe.name} />
-              <h1 className="text-center text-xl font-bold">{shoe.name}</h1>
-              <h1 className="text-center text-xl font-bold">${shoe.price}</h1>
+              <SneakerCard shoe={shoe} />
             </Link>
           );
         })}

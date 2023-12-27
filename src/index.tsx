@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 import Footer from "./Compenents/Footer";
+import Cart from "./Compenents/Cart";
 
 const router = createBrowserRouter([
   { element: <BasicNavbar></BasicNavbar> },
@@ -48,6 +49,15 @@ const router = createBrowserRouter([
       <>
         <BasicNavbar></BasicNavbar>
         <Favorites />{" "}
+      </>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <>
+        <BasicNavbar></BasicNavbar>
+        <Cart></Cart>
       </>
     ),
   },

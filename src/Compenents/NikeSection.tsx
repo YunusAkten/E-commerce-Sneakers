@@ -3,6 +3,7 @@ import nikeBanner from "../images/homeImages/nikeBanner.jpg";
 import { Shoe } from "../data/shoes";
 import shoes from "../data/shoes";
 import { Link } from "react-router-dom";
+import SneakerCard from "./SneakerCard";
 
 function NikeSection() {
   const [nikes, setNikes] = useState<Shoe[]>([]);
@@ -28,9 +29,7 @@ function NikeSection() {
         {nikes.map((shoe) => {
           return (
             <Link key={shoe.name} to={`/sneakers${shoe.blob}`}>
-              <img className=" " src={shoe.img} alt={shoe.name} />
-              <h1 className="text-center text-xl font-bold">{shoe.name}</h1>
-              <h1 className="text-center text-xl font-bold">${shoe.price}</h1>
+              <SneakerCard shoe={shoe} />
             </Link>
           );
         })}

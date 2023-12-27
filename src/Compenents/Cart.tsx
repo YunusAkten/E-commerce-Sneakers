@@ -1,22 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
+import Footer from "./Footer";
 function Cart() {
   const cart = useSelector((state: any) => state.app.cart);
   const dispatch = useDispatch();
   const hideCart = useSelector((state: any) => state.app.hideCart);
 
   return (
-    <>
-      {hideCart ? null : (
-        <div
-          className="  top-3/4 text-center   mt-8 w-80  
+    <div
+      className="  h-screen    mt-8   
         flex  flex-col  align-items-center 
-p-2  text-white  right-0 h-96 rounded-lg bg-gray-800 absolute "
-        >
-          <h1 className="text-2xl m-5">Cart</h1>
-          <div className="flex flex-col items-center"></div>
-        </div>
-      )}
-      {!hideCart && cart.length > 0 ? (
+    "
+    >
+      <h1 className="text-3xl m-2">Cart</h1>
+      <div className="flex flex-col items-center"></div>
+
+      {cart.length > 0 ? (
         <div className="flex flex-col items-center">
           {cart.map((shoe: any) => {
             return (
@@ -36,8 +34,11 @@ p-2  text-white  right-0 h-96 rounded-lg bg-gray-800 absolute "
             Checkout
           </button>
         </div>
-      ) : null}
-    </>
+      ) : (
+        <h1 className="text-2xl m-2">No Items in Cart</h1>
+      )}
+      <Footer></Footer>
+    </div>
   );
 }
 
