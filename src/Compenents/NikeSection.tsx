@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import nikeBanner from "../images/homeImages/nikeBanner.jpg";
-import { Shoe } from "../data/shoes";
-import shoes from "../data/shoes";
+import { Sneaker } from "../data/sneakers";
+import { sneakers } from "../data/sneakers";
 import { Link } from "react-router-dom";
 import SneakerCard from "./SneakerCard";
 
 function NikeSection() {
-  const [nikes, setNikes] = useState<Shoe[]>([]);
+  const [nikes, setNikes] = useState<Sneaker[]>([]);
   useEffect(() => {
-    const nikes = shoes.filter((shoe) => {
+    const nikes = sneakers.filter((shoe) => {
       return shoe.brand === "nike";
     });
     setNikes(nikes);
@@ -26,12 +26,8 @@ function NikeSection() {
         <img className="h-screen" src={nikeBanner} alt="nike" />
       </div>
       <div className="grid gap-2 flex-1    grid-cols-3">
-        {nikes.map((shoe) => {
-          return (
-            <Link key={shoe.name} to={`/sneakers${shoe.blob}`}>
-              <SneakerCard shoe={shoe} />
-            </Link>
-          );
+        {nikes.map((sneaker) => {
+          return <SneakerCard key={sneaker.id} sneaker={sneaker} />;
         })}
       </div>
     </div>

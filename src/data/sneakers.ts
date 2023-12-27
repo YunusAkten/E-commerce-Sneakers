@@ -6,7 +6,7 @@ import jordanwhynot from "../images/shoes/jordanWhyNot.jpg";
 import nikezoomfreak from "../images/shoes/nikeZoomFreak.jpg";
 import AirJordan1Mid from "../images/shoes/AirJordan1Mid.jpg";
 import nikelebronxviilow from "../images/shoes/nikeLebronXVIILow.jpg";
-export interface Shoe {
+export interface Sneaker {
   id: string;
   name: string;
   price: number;
@@ -14,11 +14,16 @@ export interface Shoe {
   brand?: string;
   sales: number;
   blob?: string;
+  sizes: string[];
 }
 function createBlob(params: string) {
   return params.split(" ").join("-").toLowerCase();
 }
-const data: Shoe[] = [
+function createSizes() {
+  const sizes = ["36", "38", "40", "41", "42", "43", "44", "45"];
+  return sizes.filter((size) => Math.random() < 0.5);
+}
+export const sneakers: Sneaker[] = [
   {
     id: nikelebronwitnessv,
     name: "Nike Lebron Witness V",
@@ -26,6 +31,7 @@ const data: Shoe[] = [
     img: nikelebronwitnessv,
     brand: "nike",
     sales: 540,
+    sizes: ["38", "40", "41", "42", "43", "44"],
   },
   {
     id: nikekyrie6,
@@ -34,6 +40,7 @@ const data: Shoe[] = [
     img: nikekyrie6,
     brand: "nike",
     sales: 224,
+    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
   },
   {
     id: nikekd13,
@@ -42,6 +49,7 @@ const data: Shoe[] = [
     img: nikekd13,
     brand: "nike",
     sales: 722,
+    sizes: ["36", "38", "41", "43", "44", "45"],
   },
   {
     id: adidashardenstepback,
@@ -50,6 +58,7 @@ const data: Shoe[] = [
     img: adidashardenstepback,
     brand: "adidas",
     sales: 200,
+    sizes: ["36", "41", "42", "43", "44", "45"],
   },
   {
     id: jordanwhynot,
@@ -58,6 +67,7 @@ const data: Shoe[] = [
     img: jordanwhynot,
     brand: "jordan",
     sales: 800,
+    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
   },
   {
     id: nikezoomfreak,
@@ -66,6 +76,7 @@ const data: Shoe[] = [
     img: nikezoomfreak,
     brand: "nike",
     sales: 521,
+    sizes: ["36", "38", "40", "44", "45"],
   },
   {
     id: AirJordan1Mid,
@@ -74,17 +85,18 @@ const data: Shoe[] = [
     img: AirJordan1Mid,
     brand: "jordan",
     sales: 370,
+    sizes: ["36", "38", "41", "42", "43"],
   },
   {
     id: nikelebronxviilow,
     name: "Nike Lebron XVII Low",
     price: 150,
-    img: nikelebronwitnessv,
+    img: nikelebronxviilow,
     brand: "nike",
     sales: 742,
+    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
   },
-].map((shoe) => ({
-  ...shoe,
-  blob: createBlob(shoe.name),
+].map((Sneaker) => ({
+  ...Sneaker,
+  blob: createBlob(Sneaker.name),
 }));
-export default data;

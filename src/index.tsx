@@ -1,18 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 import Home from "./Home";
 import Sneakers from "./Compenents/Sneakers";
-import "./index.css";
 import SneakerDetails from "./Compenents/SneakerDetail";
 import BasicNavbar from "./Compenents/BasicNavbar";
 import Favorites from "./Compenents/Favorites";
-import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./redux/store.js";
-import Footer from "./Compenents/Footer";
 import Cart from "./Compenents/Cart";
-
+import { store } from "./redux/store.js";
 const router = createBrowserRouter([
   { element: <BasicNavbar></BasicNavbar> },
   {

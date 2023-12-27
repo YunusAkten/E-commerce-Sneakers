@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
-import shoes from "../data/shoes";
-import { Shoe } from "../data/shoes";
+import { sneakers } from "../data/sneakers";
+import { Sneaker } from "../data/sneakers";
 import { Link } from "react-router-dom";
 import SneakerCard from "./SneakerCard";
 function TrendingSneakers() {
-  const [sortedShoes, setSortedShoes] = useState<Shoe[]>([]);
-  if (sortedShoes.length === 0) {
-    const sorted = shoes.sort((a, b) => {
+  const [sortedSneakers, setSortedSneakers] = useState<Sneaker[]>([]);
+  if (sortedSneakers.length === 0) {
+    const sorted = sneakers.sort((a, b) => {
       return b.sales - a.sales;
     });
-    setSortedShoes(sorted.slice(0, 5));
+    setSortedSneakers(sorted.slice(0, 5));
   }
 
   return (
     <div className="m-10">
       <h1 className="  text-2xl  ">Trending Sneakers</h1>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-5  ">
-        {sortedShoes.map((shoe) => {
-          return (
-            <Link
-              key={shoe.name}
-              to={`
-            /sneakers/${shoe.blob}
-            `}
-            >
-              <SneakerCard shoe={shoe} size="sm" />
-            </Link>
-          );
+        {sortedSneakers.map((sneaker) => {
+          return <SneakerCard key={sneaker.id} sneaker={sneaker} size="sm" />;
         })}
       </div>
     </div>
