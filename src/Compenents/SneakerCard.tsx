@@ -19,7 +19,7 @@ function SneakerCard({ sneaker, size }: Props) {
     }
   };
   return (
-    <a href={`/sneakers/${sneaker.blob}`}>
+    <a href={`/${sneaker.blob}`}>
       <div
         className={`${
           size === "sm" ? "h-48 w-48" : ""
@@ -34,7 +34,7 @@ function SneakerCard({ sneaker, size }: Props) {
           }`}
         ></HeartIcon>
         <img alt="name" src={sneaker.img}></img>{" "}
-        <div className="textDiv">
+        <div className="textDiv my-4">
           <p> {sneaker.name}</p>
           <p className="bold">${sneaker.price}</p>
         </div>

@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Footer from "./Footer";
 function Cart() {
   const cart = useSelector((state: any) => state.app.cart);
-  const dispatch = useDispatch();
-  const hideCart = useSelector((state: any) => state.app.hideCart);
 
   return (
     <div

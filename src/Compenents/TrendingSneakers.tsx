@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { sneakers } from "../data/sneakers";
+import { useEffect, useState } from "react";
 import { Sneaker } from "../data/sneakers";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import SneakerCard from "./SneakerCard";
 function TrendingSneakers() {
+  const sneakers = useSelector((state: any) => state.app.sneakers);
   const [sortedSneakers, setSortedSneakers] = useState<Sneaker[]>([]);
-  if (sortedSneakers.length === 0) {
-    const sorted = sneakers.sort((a, b) => {
-      return b.sales - a.sales;
-    });
-    setSortedSneakers(sorted.slice(0, 5));
-  }
-
+  useEffect(() => {
+    if (sortedSneakers.length === 0) {
+      const sorted = [...sneakers].sort((a, b) => {
+        return b.sales - a.sales;
+      });
+      setSortedSneakers(sorted.slice(0, 5));
+    }
+  }, [sneakers]);
   return (
     <div className="m-10">
       <h1 className="  text-2xl  ">Trending Sneakers</h1>

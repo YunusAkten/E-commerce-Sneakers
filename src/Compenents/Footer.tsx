@@ -86,7 +86,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex float-end items-center justify-center  p-2 lg:justify-between">
+      <div className="flex float-end items-center justify-center pb-4  px-4 lg:justify-between">
         <div className="flex justify-center">
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg

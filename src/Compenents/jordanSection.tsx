@@ -15,7 +15,7 @@ function JordanSection() {
     setJordans(jordans);
   }, []);
   return (
-    <div className="flex flex-row gap-2 m-6">
+    <div className="flex flex-row gap-2 m-6 mt-16">
       <div className="flex-2  relative">
         <div className="absolute     py-2.5 bottom-0 right-0 m-6      leading-4">
           <h1 className="text-4xl my-5 font-bold">Jordan</h1>
@@ -24,7 +24,7 @@ function JordanSection() {
           </button>
         </div>
 
-        <img className="h-screen" src={jordanBanner} alt="nike" />
+        <img className="h-screen" src={jordanBanner} alt="jordan" />
       </div>
       <div className="grid gap-2 flex-1    grid-cols-3">
         {jordans.map((sneaker) => {

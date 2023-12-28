@@ -26,14 +26,31 @@ const router = createBrowserRouter([
     path: "/sneakers",
     element: (
       <>
-        {" "}
         <BasicNavbar></BasicNavbar>
-        <Sneakers />{" "}
+        <Sneakers />
       </>
     ),
   },
   {
-    path: "/sneakers/:id",
+    path: "/sneakers/sale",
+    element: (
+      <>
+        <BasicNavbar></BasicNavbar>
+        <Sneakers sale={true} />
+      </>
+    ),
+  },
+  {
+    path: "/sneakers/latest",
+    element: (
+      <>
+        <BasicNavbar></BasicNavbar>
+        <Sneakers latest={true} />
+      </>
+    ),
+  },
+  {
+    path: "/:id",
     element: (
       <>
         <BasicNavbar></BasicNavbar>
@@ -46,7 +63,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <BasicNavbar></BasicNavbar>
-        <Favorites />{" "}
+        <Favorites />
       </>
     ),
   },

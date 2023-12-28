@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   HeartIcon,
-  ReceiptRefundIcon,
   ShoppingCartIcon,
   TruckIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { Sneaker } from "../data/sneakers";
-import { sneakers } from "../data/sneakers";
 import Footer from "./Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToFavs } from "../redux/appSlice";
 import SneakerCard from "./SneakerCard";
 function SneakerDetails() {
-  const [sneaker, setSneaker] = React.useState<Sneaker>();
-  const [activeSize, setActiveSize] = React.useState<string>();
-  const [relatedProducts, setRelatedProducts] = React.useState<Sneaker[]>();
+  const sneakers: Sneaker[] = useSelector((state: any) => state.app.sneakers);
+  const [sneaker, setSneaker] = useState<Sneaker>();
+  const [activeSize, setActiveSize] = useState<string>();
+  const [relatedProducts, setRelatedProducts] = useState<Sneaker[]>();
   const sizes = ["36", "38", "40", "41", "42", "43", "44", "45"];
   const location = useLocation();
-  const blob = location.pathname.split("/")[2];
+  const blob = location.pathname.split("/")[1];
+
   const dispatch = useDispatch();
   useEffect(() => {
     const sneaker = sneakers.find((sneaker) => {
@@ -40,7 +40,7 @@ function SneakerDetails() {
       }
       // if there are less than 5 related products, we want to show the related products and the top selling products
       else {
-        const topSneakers = sneakers.sort((a, b) => {
+        const topSneakers = [...sneakers].sort((a, b) => {
           return b.sales - a.sales;
         });
         const neededProducts = 5 - relatedProducts.length;
@@ -68,12 +68,12 @@ function SneakerDetails() {
                 <p
                   key={size}
                   onClick={
-                    sneaker && sneaker.sizes.includes(size)
+                    sneaker && sneaker.size.includes(size)
                       ? () => setActiveSize(size)
                       : () => {}
                   }
                   className={` border text-center  border-black p-2 mr-2 my-2 w-16 rounded ${
-                    sneaker && sneaker.sizes.includes(size)
+                    sneaker && sneaker.size.includes(size)
                       ? "cursor-pointer  "
                       : " cursor-not-allowed text-gray-500"
                   }

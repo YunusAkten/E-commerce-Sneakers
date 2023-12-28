@@ -14,14 +14,15 @@ export interface Sneaker {
   brand?: string;
   sales: number;
   blob?: string;
-  sizes: string[];
+  size: string[];
+  gender: string[];
 }
 function createBlob(params: string) {
   return params.split(" ").join("-").toLowerCase();
 }
 function createSizes() {
-  const sizes = ["36", "38", "40", "41", "42", "43", "44", "45"];
-  return sizes.filter((size) => Math.random() < 0.5);
+  const size = ["36", "38", "40", "41", "42", "43", "44", "45"];
+  return size.filter((size) => Math.random() < 0.5);
 }
 export const sneakers: Sneaker[] = [
   {
@@ -31,7 +32,8 @@ export const sneakers: Sneaker[] = [
     img: nikelebronwitnessv,
     brand: "nike",
     sales: 540,
-    sizes: ["38", "40", "41", "42", "43", "44"],
+    size: ["38", "40", "41", "42", "43", "44"],
+    gender: ["man", "woman"],
   },
   {
     id: nikekyrie6,
@@ -40,7 +42,8 @@ export const sneakers: Sneaker[] = [
     img: nikekyrie6,
     brand: "nike",
     sales: 224,
-    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    size: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    gender: ["man", "woman"],
   },
   {
     id: nikekd13,
@@ -49,7 +52,8 @@ export const sneakers: Sneaker[] = [
     img: nikekd13,
     brand: "nike",
     sales: 722,
-    sizes: ["36", "38", "41", "43", "44", "45"],
+    size: ["36", "38", "41", "43", "44", "45"],
+    gender: ["man", "woman"],
   },
   {
     id: adidashardenstepback,
@@ -58,7 +62,8 @@ export const sneakers: Sneaker[] = [
     img: adidashardenstepback,
     brand: "adidas",
     sales: 200,
-    sizes: ["36", "41", "42", "43", "44", "45"],
+    size: ["36", "41", "42", "43", "44", "45"],
+    gender: ["man", "woman"],
   },
   {
     id: jordanwhynot,
@@ -67,7 +72,8 @@ export const sneakers: Sneaker[] = [
     img: jordanwhynot,
     brand: "jordan",
     sales: 800,
-    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    size: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    gender: ["man", "woman"],
   },
   {
     id: nikezoomfreak,
@@ -76,7 +82,8 @@ export const sneakers: Sneaker[] = [
     img: nikezoomfreak,
     brand: "nike",
     sales: 521,
-    sizes: ["36", "38", "40", "44", "45"],
+    size: ["36", "38", "40", "44", "45"],
+    gender: ["man", "woman", "kids"],
   },
   {
     id: AirJordan1Mid,
@@ -85,7 +92,8 @@ export const sneakers: Sneaker[] = [
     img: AirJordan1Mid,
     brand: "jordan",
     sales: 370,
-    sizes: ["36", "38", "41", "42", "43"],
+    size: ["36", "38", "41", "42", "43"],
+    gender: ["man", "woman"],
   },
   {
     id: nikelebronxviilow,
@@ -94,7 +102,8 @@ export const sneakers: Sneaker[] = [
     img: nikelebronxviilow,
     brand: "nike",
     sales: 742,
-    sizes: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    size: ["36", "38", "40", "41", "42", "43", "44", "45"],
+    gender: ["man", "woman"],
   },
 ].map((Sneaker) => ({
   ...Sneaker,
