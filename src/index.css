@@ -13,3 +13,9 @@ a{
   text-decoration: none;
   color: #000;
 }
+.sneakerDiv{
+  min-width: 100px ;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+}

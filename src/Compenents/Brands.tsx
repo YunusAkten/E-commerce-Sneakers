@@ -5,7 +5,7 @@ function Brands() {
   return (
     <>
       <h1 className="m-2 mt-10  text-2xl text-center"> Brands</h1>
-      <div className="flex justify-center">
+      <div className="grid grid-cols-8 justify-center  md:flex">
         {brands.map((brand: Brand) => {
           return (
             <a key={brand.id} href={`/sneakers/${brand.name}`}>

@@ -29,16 +29,19 @@ function Cart() {
       <h1 className="text-3xl m-4">Cart</h1>
       <hr className="bg-gray-300 h-0.5 mx-2"></hr>
       {cart.length > 0 ? (
-        <div className=" flex  justify-center items-center relative cartDiv flex-row">
-          <div className="flex  sneakersDivCart w-2/4 relative flex-col m-5">
+        <div className=" flex  justify-normal items-center relative cartDiv flex-row gap-y-16 md:justify-center">
+          <div className="flex  sneakersDivCart w-2/4 relative flex-col m-5 ">
             {cart.map((sneaker: any) => {
               return (
                 <>
                   <div
                     key={sneaker.id}
-                    className="flex relative flex-row m-2 gap-2"
+                    className="flex relative flex-col m-2 gap-2 md:flex-row"
                   >
-                    <Link key={sneaker.id} to={`/sneaker/${sneaker.blob}`}>
+                    <Link
+                      key={`${sneaker.id}-${sneaker.size}`}
+                      to={`/sneaker/${sneaker.blob}`}
+                    >
                       <img
                         className="w-36"
                         src={sneaker.img}
@@ -65,10 +68,8 @@ function Cart() {
                       <h1 className="text-xl absolute top-4 right-0 bold ">
                         {sneaker.price}$
                       </h1>
-                      <button
-                        onClick={() => dispatch(removeFromCart(sneaker.id))}
-                      >
-                        <TrashIcon className="h-6 w-6 absolute  right-0 hover:stroke-red-500 "></TrashIcon>
+                      <button onClick={() => dispatch(removeFromCart(sneaker))}>
+                        <TrashIcon className="h-6 w-6 absolute bottom-4  right-0 hover:stroke-red-500 "></TrashIcon>
                       </button>
                     </div>
                   </div>

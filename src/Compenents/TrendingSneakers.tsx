@@ -16,7 +16,7 @@ function TrendingSneakers() {
   return (
     <div className="m-10">
       <h1 className="  text-2xl  ">Trending Sneakers</h1>
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5  ">
+      <div className="grid grid-cols-2  sm:grid-cols-5 gap-y-16  ">
         {sortedSneakers.map((sneaker) => {
           return <SneakerCard key={sneaker.id} sneaker={sneaker} size="sm" />;
         })}

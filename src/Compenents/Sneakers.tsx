@@ -29,9 +29,9 @@ function Sneakers({ sale, latest }: SneakersProps) {
   };
   return (
     <div className="flex  flex-col   h-screen ">
-      <div className=" flex flex-col  md:flex-row   ">
+      <div className=" flex flex-col my-16 md:flex-row   ">
         <Filter></Filter>
-        <div className="grid grid-cols-2 gap-4  m-5 md:grid-cols-3 lg:grid-cols-5 ">
+        <div className="grid grid-cols-2 gap-4  gap-16 m-5 md:grid-cols-3 lg:grid-cols-5 ">
           {renderSneakers()}
         </div>
       </div>

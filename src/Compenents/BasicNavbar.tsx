@@ -6,7 +6,7 @@ import {
   HeartIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
-
+import Cart from "./Cart";
 import { Link } from "react-router-dom";
 const navigation = [
   { name: "Sale", href: "/sneakers/sale", current: false },

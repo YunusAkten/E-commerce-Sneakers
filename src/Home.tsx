@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import BasicNavbar from "./Compenents/BasicNavbar";
 import Brands from "./Compenents/Brands";
 import Carousel from "./Compenents/Carousel";
 import TrendingSneakers from "./Compenents/TrendingSneakers";

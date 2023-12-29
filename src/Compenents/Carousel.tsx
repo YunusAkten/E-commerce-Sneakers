@@ -27,6 +27,7 @@ function Carousel() {
       </button>
       <Link className="flex  w-full items-center" to="/sneakers">
         <img
+          loading="lazy"
           className="object-cover h-96 w-full"
           src={homeImages[currentImage].link}
           alt={homeImages[currentImage].id}

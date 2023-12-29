@@ -7,14 +7,12 @@ function Favorites() {
 
   return (
     <div className="   flex  flex-col h-screen ">
-      <div className="   flex   flex-col w-screen m-4  justify-center bg-cover bg-center bg-no-repeat">
+      <div className="   flex   flex-col w-screen m-4   justify-center bg-cover bg-center bg-no-repeat">
         <h1 className="text-3xl    ">Favorites</h1>
         {favs.length > 0 && (
-          <div className="grid grid-cols-2    md:grid-cols-3 lg:grid-cols-5 ">
+          <div className="flex flex-row m-16 gap-16 flex-wrap md:gap-8  ">
             {favs.map((sneaker: any) => {
-              return (
-                <SneakerCard size="sm" key={sneaker.name} sneaker={sneaker} />
-              );
+              return <SneakerCard key={sneaker.name} sneaker={sneaker} />;
             })}
           </div>
         )}
