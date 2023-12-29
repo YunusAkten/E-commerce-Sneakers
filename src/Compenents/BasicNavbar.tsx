@@ -6,7 +6,7 @@ import {
   HeartIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
-import Cart from "./Cart";
+
 import { Link } from "react-router-dom";
 const navigation = [
   { name: "Sale", href: "/sneakers/sale", current: false },
@@ -20,8 +20,7 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
 
 export default function Example() {
   const favs = useSelector((state: any) => state.app.favs);
-  const cart = useSelector((state: any) => state.app.cart);
-  const hideCart = useSelector((state: any) => state.app.hideCart);
+  const cart = useSelector((state: any) => state.cart.cart);
   const dispatch = useDispatch();
   return (
     <Disclosure as="nav" className="bg-gray-800  top-0 w-full z-10">

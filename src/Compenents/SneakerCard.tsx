@@ -19,7 +19,7 @@ function SneakerCard({ sneaker, size }: Props) {
     }
   };
   return (
-    <a href={`/${sneaker.blob}`}>
+    <a href={`/sneaker/${sneaker.blob}`}>
       <div
         className={`${
           size === "sm" ? "h-48 w-48" : ""

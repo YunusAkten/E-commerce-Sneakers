@@ -14,10 +14,10 @@ function NikeSection() {
     setNikes(nikes);
   }, []);
   return (
-    <div className="flex flex-row gap-2 m-6">
+    <div className="flex flex-col gap-2 m-6 md:flex-row">
       <div className="flex-2  relative">
         <div className="absolute     py-2.5 bottom-12 right-0 m-6      leading-4">
-          <h1 className="text-4xl my-5 font-bold">Jordan</h1>
+          <h1 className="text-4xl my-5 font-bold">Nike</h1>
           <button className="bg-black hover:bg-gray-800   text-white p-2 rounded-lg">
             Shop Now
           </button>

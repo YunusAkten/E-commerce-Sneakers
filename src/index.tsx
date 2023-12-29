@@ -11,6 +11,7 @@ import BasicNavbar from "./Compenents/BasicNavbar";
 import Favorites from "./Compenents/Favorites";
 import Cart from "./Compenents/Cart";
 import { store } from "./redux/store.js";
+import PageNotFound from "./Compenents/PageNotFound";
 const router = createBrowserRouter([
   { element: <BasicNavbar></BasicNavbar> },
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/:id",
+    path: "/sneaker/:id",
     element: (
       <>
         <BasicNavbar></BasicNavbar>
@@ -73,6 +74,15 @@ const router = createBrowserRouter([
       <>
         <BasicNavbar></BasicNavbar>
         <Cart></Cart>
+      </>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <>
+        <BasicNavbar></BasicNavbar>
+        <PageNotFound />
       </>
     ),
   },

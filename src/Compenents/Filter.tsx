@@ -37,7 +37,7 @@ function Sidebar() {
   return (
     <form
       onChange={handleChange}
-      className="flex flex-col text-gray-600 m-7   p-5"
+      className="flex flex-col text-gray-600 m-2   p-5"
     >
       <div className="gender">
         <h1 className="text-xl text-gray-900">Genders</h1>

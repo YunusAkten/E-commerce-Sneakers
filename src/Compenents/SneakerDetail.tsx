@@ -9,17 +9,29 @@ import {
 import { Sneaker } from "../data/sneakers";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, addToFavs } from "../redux/appSlice";
+import { addToCart } from "../redux/cartSlice";
+import { addToFavs, removeFromFavs } from "../redux/appSlice";
 import SneakerCard from "./SneakerCard";
 function SneakerDetails() {
   const sneakers: Sneaker[] = useSelector((state: any) => state.app.sneakers);
   const [sneaker, setSneaker] = useState<Sneaker>();
   const [activeSize, setActiveSize] = useState<string>();
   const [relatedProducts, setRelatedProducts] = useState<Sneaker[]>();
+  const [showSizeAlert, setShowSizeAlert] = useState<boolean>(false);
+  const checkFav = useSelector((state: any) =>
+    state.app.favs.find((fav: any) => fav.id === sneaker?.id)
+  );
   const sizes = ["36", "38", "40", "41", "42", "43", "44", "45"];
   const location = useLocation();
-  const blob = location.pathname.split("/")[1];
+  const blob = location.pathname.split("/")[2];
 
+  const handleAddToCart = () => {
+    if (!activeSize) {
+      setShowSizeAlert(true);
+      return;
+    }
+    dispatch(addToCart({ ...sneaker, size: activeSize }));
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     const sneaker = sneakers.find((sneaker) => {
@@ -49,6 +61,7 @@ function SneakerDetails() {
       }
     }
   }, []);
+
   return (
     <div className="flex flex-col  h-screen  ">
       <div className=" p-5  grid  justify-center  lg:grid-cols-2   ">
@@ -84,22 +97,43 @@ function SneakerDetails() {
               );
             })}
           </div>
+          <p
+            className={`mx-2 text-red-600   ${
+              showSizeAlert ? "block" : "hidden"
+            } ${activeSize && "hidden"}`}
+          >
+            You must pick a size!
+          </p>
           <div className="flex buttonDiv flex-col items-start md:flex-row  ">
             <button
               className="flex flex-row  px-4 relative p-2 rounded-lg my-2 mx-0 text-white w-48   bg-gray-600 hover:bg-gray-700 "
-              onClick={() => dispatch(addToCart(sneaker))}
+              onClick={handleAddToCart}
             >
               <span> Add To Cart</span>
               <ShoppingCartIcon className="h-6 w-6 absolute  right-5"></ShoppingCartIcon>
             </button>
             <button
-              className="flex flex-row p-2 px-4 rounded-lg my-2 mx-0 text-white w-48 relative bg-gray-600 hover:bg-gray-700 md:mx-2 "
-              onClick={() => dispatch(addToFavs(sneaker))}
+              className={`flex flex-row p-2 px-4 rounded-lg my-2 mx-0 
+              text-white  relative bg-gray-600 hover:bg-gray-700 md:mx-2  ${
+                checkFav ? "w-60" : "w-48"
+              }`}
+              onClick={
+                checkFav
+                  ? () => dispatch(removeFromFavs(sneaker))
+                  : () => dispatch(addToFavs(sneaker))
+              }
             >
-              <span> Add To Favorites</span>
-              <HeartIcon className="h-6 w-6 absolute right-5  hover:fill-red-600 hover:stroke-red-600"></HeartIcon>{" "}
+              <span>
+                {checkFav ? "Remove from  Favorite" : "Add to Favorite"}
+              </span>
+              <HeartIcon
+                className={`h-6 w-6 absolute right-5 ${
+                  checkFav && "fill-red-600 stroke-red-600"
+                }  hover:fill-red-600 hover:stroke-red-600`}
+              ></HeartIcon>
             </button>
           </div>
+
           <div className="flex badgesDiv my-2  flex-col ">
             <div className="flex flex-row m-2">
               <div className="flex ">
