@@ -25,3 +25,5 @@ yarn-error.log*
 # js and jsx files
 *.js
 *.jsx
+!**/redux/*.js
+!**/redux/*.jsx
