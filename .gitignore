@@ -27,3 +27,4 @@ yarn-error.log*
 *.jsx
 !**/redux/*.js
 !**/redux/*.jsx
+!tailwind.config.js
